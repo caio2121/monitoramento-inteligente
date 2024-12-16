@@ -23,7 +23,7 @@ Este repositório é uma vitrine das minhas habilidades e experiência, com o ob
    - **Descrição**: Script em Python para verificar o status de dispositivos de câmeras de segurança usando IPs listados em uma planilha do Google Sheets. Gera relatórios de dispositivos offline e envia notificações via Telegram.  
    - **Tecnologias**: Python, Requests, CSV, Subprocess, Telegram API.  
    
-2. **zabbix_host_manager.py**  
+2. **`zabbix_host_manager.py`**  
    - **Descrição**: Script em Python para gerenciar a criação e atualização de hosts no Zabbix, incluindo a verificação de status e a sanitização de nomes de host. Gera logs de erros e falhas na criação de hosts. 
    - **Tecnologias**:  Python, PyZabbix, CSV, Logging
 
