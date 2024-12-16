@@ -27,6 +27,10 @@ Este repositório é uma vitrine das minhas habilidades e experiência, com o ob
    - **Descrição**: Script em Python para gerenciar a criação e atualização de hosts no Zabbix, incluindo a verificação de status e a sanitização de nomes de host. Gera logs de erros e falhas na criação de hosts. 
    - **Tecnologias**:  Python, PyZabbix, CSV, Logging
 
+3. **`disk_space_monitor.py`**  
+   - **Descrição**:  Script em Python para monitorar o espaço em disco de múltiplos servidores via SSH, coletando informações sobre o uso de espaço em diretórios específicos e enviando alertas detalhados para um grupo no Telegram. O script executa comandos personalizados em cada servidor, verifica o espaço livre e utiliza uma chave privada para autenticação SSH. 
+   - **Tecnologias**:  Python, Paramiko, Telegram API, SSH, Logging     
+
 ---
 
 ## 🖥️ Sobre Mim
