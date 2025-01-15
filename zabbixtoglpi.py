@@ -4,8 +4,7 @@ import json
 
 # Verificar se os parâmetros foram passados
 if len(sys.argv) != 3:
-    print("Por favor, forneça o título e o conteúdo do ticket.")
-    sys.exit(1)
+    sys.exit(1)  # Erro de uso: parâmetros insuficientes
 
 # Receber os parâmetros do título e conteúdo
 ticket_name = sys.argv[1]
@@ -16,7 +15,7 @@ glpi_url = "https://glpi.com.br/apirest.php/initSession"
 
 # Defina os tokens
 user_token = ""  # Substitua com seu token pessoal
-app_token = ""    # Substitua com seu token da aplicação
+app_token = ""   # Substitua com seu token da aplicação
 
 # Dados para autenticação
 headers = {
@@ -29,12 +28,11 @@ response = requests.post(glpi_url, headers=headers)
 
 # Verificar a resposta e obter o Session-Token
 if response.status_code == 200:
-    session_token = response.json().get('session_token')  # Alterado para acessar o valor correto
-    print("Sessão iniciada com sucesso!")
+    session_token = response.json().get('session_token')
+    if not session_token:
+        sys.exit(2)  # Erro ao obter o token de sessão
 else:
-    print(f"Erro ao iniciar sessão: {response.status_code}")
-    print(response.text)
-    sys.exit(1)
+    sys.exit(2)  # Erro ao iniciar sessão
 
 # URL para criar o ticket
 ticket_url = "https://glpi.com.br/apirest.php/Ticket"
@@ -51,10 +49,10 @@ ticket_data = {
     "input": {
         "name": ticket_name,
         "content": ticket_content,
-        "itilcategories_id": 7,   # Substitua com o ID correto da categoria
+        "itilcategories_id": 1,   # Substitua com o ID correto da categoria
         "requesttypes_id": 1,     # Substitua com o ID correto do tipo de solicitação
         "urgency": 3,             # Urgência do chamado (1-5)
-        "impact": 2,              # Impacto do chamado (1-5)
+        "impact": 3,              # Impacto do chamado (1-5)
         "status": 1               # Status do ticket (1 para "Novo")
     }
 }
@@ -64,8 +62,6 @@ response = requests.post(ticket_url, headers=headers, json=ticket_data)
 
 # Verificar a resposta
 if response.status_code == 201:
-    print("Ticket criado com sucesso!")
-    print("Detalhes do ticket:", response.json())
+    sys.exit(0)  # Sucesso
 else:
-    print(f"Erro ao criar ticket: {response.status_code}")
-    print(response.json())
+    sys.exit(3)  # Erro ao criar o ticket
