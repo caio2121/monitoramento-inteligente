@@ -29,7 +29,11 @@ Este repositório é uma vitrine das minhas habilidades e experiência, com o ob
 
 3. **`disk_space_monitor.py`**  
    - **Descrição**:  Script em Python para monitorar o espaço em disco de múltiplos servidores via SSH, coletando informações sobre o uso de espaço em diretórios específicos e enviando alertas detalhados para um grupo no Telegram. O script executa comandos personalizados em cada servidor, verifica o espaço livre e utiliza uma chave privada para autenticação SSH. 
-   - **Tecnologias**:  Python, Paramiko, Telegram API, SSH, Logging     
+   - **Tecnologias**:  Python, Paramiko, Telegram API, SSH, Logging
+4. **`zabbixtoglpi.py`**
+   - **Descrição**: Script em Python para criar tickets automaticamente no GLPI via API REST. O script autentica usando tokens de sessão, recebe parâmetros para o título e conteúdo do chamado e permite integração com sistemas de monitoramento, como o Zabbix, para abertura automática de tickets com base em eventos.
+
+   - **Tecnologias**: Python, Requests, GLPI API, Logging  
 
 ---
 
